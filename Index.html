@@ -3,35 +3,36 @@
   <head>
     <meta charset="UTF-8">
     <title>Mustis Budget Calcylator</title>
-      
+
       <script src="/js/jquery-3.1.1.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <link type="text/css" rel=stylesheet href="CSS/Style.css">
   <link type="text/css" rel=stylesheet href="CSS/font-awesome-4.7.0/css/font-awesome.min.css">
-      
-    
-      
+
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
         <link type="text/css" rel=stylesheet href="CSS/xeditable.css">
         <script src="js/xeditable.js"></script>
 
 
-      
+
   </head>
   <body ng-app="myApp">
-  
-      
+
+
       <div class="main" ng-controller="MainController">
-      
-          
+
+<div class="container">
+
           <h1> {{title}}</h1>
-      
+
       <br><br>
       <h2> Your Budget is {{budget | currency}}</h2>
-      
-      <div class="input"> 
-      
+
+      <div class="input">
+
 <form class="form-inline">
   <div class="form-group">
     <input type="name" class="form-control" id="forWho" placeholder="Name" ng-model="userName">
@@ -43,96 +44,103 @@
      <div class="input-group">
       <div class="input-group-addon">$</div>
       <input type="text" class="form-control" id="InputAmount" placeholder="Amount" ng-model="amount">
-    </div> 
+    </div>
   <button type="submit" class="btn btn-primary" id="add" ng-click="makeAWish(userName, whatToBuy, amount)">Add a wish</button>
 </form>
-      
-            <form>
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-addon"><i class="fa fa-search"></i></div>
 
-        <input type="text" class="form-control" placeholder="Search da wish" ng-model="searchWish">
 
-      </div>      
-    </div>
-  </form>
-          
+
       </div>
-      
+
+
       <div class="wishes">
-            
-          <h2 id="wishes">Wishes: {{totalWishes}}</h2>
+
+          <h2 id="wishes">Wishes</h2>
+          <ul>
+            <li>Total Wishes = {{totalWishes}}</li>
+            <li>Total price = {{getTotal() | currency}}</li>
+
+          </ul>
            <table class="list" >
-          
-                <th></th>  
+
+             <form id="search">
+     <div class="form-group">
+       <div class="input-group">
+         <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+         <input type="text" class="form-control" placeholder="Search da wish" ng-model="searchWish">
+
+       </div>
+     </div>
+   </form>
+                <th></th>
                 <th><a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
                     Name
                 <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
                 <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
 
                     </a></th>
-                <th>          
+                <th>
                     <a href="#" ng-click="sortType = 'toBuy'; sortReverse = !sortReverse">
                     <span ng-show="sortType == 'toBuy' && !sortReverse" class="fa fa-caret-down"></span>
                     <span ng-show="sortType == 'toBuy' && sortReverse" class="fa fa-caret-up"></span>
                     To buy
-                    
-                    </a></th> 
+
+                    </a></th>
                 <th>
                     <a href="#" ng-click="sortType = 'price'; sortReverse = !sortReverse">
                     <span ng-show="sortType == 'price' && !sortReverse" class="fa fa-caret-down"></span>
                     <span ng-show="sortType == 'price' && sortReverse" class="fa fa-caret-up"></span>
                         Price
                     </a>
-               </th>   
-                <th></th> 
-               
-                   <tr ng-repeat="wish in wishes | orderBy:sortType:sortReverse | filter:searchWish"> 
+               </th>
+                <th></th>
+
+                   <tr ng-repeat="wish in wishes | orderBy:sortType:sortReverse | filter:searchWish">
                        <td class='glyphicon glyphicon-star' id="favourite" ng-click="approve(wish)"></td>
-                       <td class="name"> <a href="#" editable-text="wish.name"> {{wish.name}}</a> </td> 
+                       <td class="name"> <a href="#" editable-text="wish.name"> {{wish.name}}</a> </td>
                        <td class="toBuy"> <a href="#" editable-text="wish.toBuy"> {{wish.toBuy}}</a> </td>
                        <td class="price"> <a href="#" editable-text="wish.price"> {{wish.price | currency}}</a></td>
                        <td class='glyphicon glyphicon-remove' id="remove" ng-click="removeWish(wish)"></td>
                     </tr>
-                   
-          
+
+
           </table>
-          
+
       </div>
-          
-          
+
+
                 <div class="Approved">
         <h2 id="approved">Approved Wishes: {{totalApprovedWishes}}</h2>
-           <table class="list" >  
+           <table class="list" >
                 <th>Name</th>
-                <th>To buy</th> 
-                <th>Price</th>   
-                <th></th> 
-               
-                   <tr ng-repeat="wish in approvedWishes"> 
+                <th>To buy</th>
+                <th>Price</th>
+                <th></th>
+
+                   <tr ng-repeat="wish in approvedWishes">
                        <td class='glyphicon glyphicon-star' id="favourite"></td>
-                       <td class="name"> <a href="#" editable-text="wish.name"> {{wish.name}}</a> </td> 
+                       <td class="name"> <a href="#" editable-text="wish.name"> {{wish.name}}</a> </td>
                        <td class="toBuy"> <a href="#" editable-text="wish.toBuy"> {{wish.toBuy}}</a> </td>
                        <td class="price"> <a href="#" editable-text="wish.price"> {{wish.price | currency}}</a></td>
                        <td class='glyphicon glyphicon-remove' id="remove" ng-click="removeApprovedWish(wish)"></td>
                     </tr>
-                   
-          
+
+
           </table>
-        
+      </div>
       <footer>
-      
-      
+
+
           <script src="js/app.js"></script>
 
             <!-- Controllers -->
             <script src="js/controllers/MainController.js"></script>
-                    
-          </footer>      
-      
+
+          </footer>
+
 <!--            <script type="text/javascript" src="js/main.js"></script>-->
 
-      
+
   </body>
 </html>

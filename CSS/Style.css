@@ -19,7 +19,7 @@
 
 table, th, td {
     padding: 10px;
-    
+
 }
 
 th, td {
@@ -29,7 +29,7 @@ th, td {
 table {
   background: rgba(255,255,255,0.95);
   box-shadow: 0 2px 2px rgba(0,0,0,.15);
-  color: #473e39; 
+  color: #473e39;
   font-size: 16px;
   margin: 0 auto 5px;
   padding: 20px;
@@ -41,14 +41,14 @@ table {
 }
 
 ul {
-    
+
     list-style-type: none;
 }
 
 
 h1 {
     text-align: center;
-    
+
 }
 
 
@@ -66,19 +66,29 @@ h1 {
 }
 
 .wishes {
-    
+
  margin: 30px;
 }
 
-#approved {
-    text-align: center;
-}
-
-#wishes {
-    text-align: center;
-}
-
 .editpopup true {
-    
-    
+
+
+}
+
+#add {
+
+margin: 20px 0;
+
+}
+
+#search {
+  width: 200px;
+  height: 60px;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.container {
+
+  text-align: center;
 }
