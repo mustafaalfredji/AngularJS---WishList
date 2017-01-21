@@ -1,0 +1,25 @@
+<div class="container">
+
+
+
+<div class="Approved">
+<h2 id="approved">Approved Wishes: {{totalApprovedWishes}}</h2>
+<table class="list" >
+  <th></th>
+<th>Name</th>
+<th>To buy</th>
+<th>Price</th>
+<th></th>
+
+   <tr ng-repeat="wish in approvedWishes">
+       <td class='glyphicon glyphicon-star' id="favourite"></td>
+       <td class="name"> <a href="#" editable-text="wish.name"> {{wish.name}}</a> </td>
+       <td class="toBuy"> <a href="#" editable-text="wish.toBuy"> {{wish.toBuy}}</a> </td>
+       <td class="price"> <a href="#" editable-text="wish.price"> {{wish.price | currency}}</a></td>
+       <td class='glyphicon glyphicon-remove' id="remove" ng-click="removeApprovedWish(wish)"></td>
+    </tr>
+
+
+</table>
+</div>
+</div>
