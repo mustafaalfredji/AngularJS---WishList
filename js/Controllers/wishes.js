@@ -8,18 +8,27 @@ app.controller("wishes", ["$scope", function($scope){
         $scope.sortReverse  = false;  // set the default sort order
         $scope.searchWish   = '';     // set the default search/filter term
 
+        
 
-    //My Wishes
+//          //Get Wishes                        
+//        getWishes.success(function(data) { 
+//        $scope.wishes = data; 
+//            });
+        
+
+                          
         $scope.wishes = [
-
-            {
-                name: "Fejzullah",
-                toBuy: "dildo",
-                price: 20,
-            },
-
-        ];
-
+        
+        {
+            name: "Mustafa",
+            toBuy: "Tesla",
+            price: 500,
+            
+        }
+        
+    ]
+                          
+        
         //Setting the length of wishes & approved wishes
             $scope.totalWishes = $scope.wishes.length;
 
@@ -59,16 +68,18 @@ app.controller("wishes", ["$scope", function($scope){
 
                 $scope.budget -= $scope.wishes[index].price;
 
-                $scope.approvedWishes.push(
+//                $scope.approvedWishes.wishes.push(
+//
+//        {
+//                name: $scope.wishes[index].name,
+//                toBuy: $scope.wishes[index].toBuy,
+//                price: $scope.wishes[index].price,
+//
+//        });
 
-        {
-                name: $scope.wishes[index].name,
-                toBuy: $scope.wishes[index].toBuy,
-                price: $scope.wishes[index].price,
-
-        });
+//                $scope.ApprovedWishes.totalWishes += 1;
+               
                 $scope.totalWishes -= 1;
-                $scope.totalApprovedWishes += 1;
                 $scope.wishes.splice(index, 1);
 
 
