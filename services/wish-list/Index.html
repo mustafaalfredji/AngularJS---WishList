@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mustis Budget Calcylator</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="/js/jquery-3.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link type="text/css" rel=stylesheet href="CSS/Style.css">
+        <link type="text/css" rel=stylesheet href="CSS/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+              <!-- Include the AngularJS routing library -->
+        <script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
+      
+        <link type="text/css" rel=stylesheet href="CSS/xeditable.css">
+        <script src="js/xeditable.js"></script>
+
+
+
+
+                
+
+  </head>
+  <body ng-controller="MainController">
+
+      <div class="main" >
+  <div class="navbar">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#/">Wishes</a></li>
+      <li role="presentation"><a href="#/approvedWishes">Approved Wishes</a></li>
+      <li role="presentation"><a href="#/notifications">Notifications</a></li>
+    </ul>
+  </div>
+
+    <p>{{theMessage}}</p>
+
+  <div ng-view></div>
+
+</div>
+</body>
+      <footer>
+
+          <script src="js/app.js"></script>
+
+            <!-- Controllers -->
+            <script src="js/controllers/MainController.js"></script>
+            <script src="js/controllers/wishes.js"></script>
+            <script src="js/controllers/approvedWishes.js"></script>
+            <script src="js/controllers/notifications.js"></script>
+          
+          
+          <!--- Services --->
+          
+<!--
+            <script src="js/services/getApprovedWishes.js"></script>
+          <script src="js/services/getWishes.js"></script>
+          <script src="js/services/getNotifications.js"></script>
+-->
+      </footer>
+
+
+
+  </body>
+</html>

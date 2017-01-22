@@ -1,0 +1,17 @@
+<div class="container">
+          <h1> {{title}}: {{totalNotifications}}</h1>
+
+      <br><br>
+
+    <table>
+    
+    <tr ng-repeat="notification in notifications">
+                       <td class="name"> <a href="#" editable-text="notification.name"> {{notification.name}}</a> </td>
+                       <td class="toBuy"> <a href="#" editable-text="wish.toBuy"> {{notification.toBuy}}</a> </td>
+                       <td class="price"> <a href="#" editable-text="wish.price"> {{notification.price | currency}}</a></td>
+                    </tr>
+    
+        
+    </table>
+    
+</div>

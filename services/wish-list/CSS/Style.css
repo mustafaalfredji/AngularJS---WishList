@@ -1,0 +1,94 @@
+.list .glyphicon-star {
+  cursor: pointer;
+  margin: 0 10px 0 10px;
+}
+
+.list .glyphicon-star:hover, .list .active {
+  color: #ffcc00;
+}
+
+.list .glyphicon-remove {
+  cursor: pointer;
+  float: right;
+}
+
+.list .glyphicon-remove:hover {
+  color: #ed1c24;
+}
+
+
+table, th, td {
+    padding: 10px;
+
+}
+
+th, td {
+    padding: 15px;
+}
+
+table {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 2px 2px rgba(0,0,0,.15);
+  color: #473e39;
+  font-size: 16px;
+  margin: 0 auto 5px;
+  padding: 20px;
+  max-width: 520px;
+}
+
+* {
+   font-family: sans-serif;
+}
+
+ul {
+
+    list-style-type: none;
+}
+
+
+h1 {
+    text-align: center;
+
+}
+
+
+
+.buyList {
+    margin: 30px;
+}
+
+#favourite {
+    padding-bottom: 25px;
+}
+
+#remove {
+    margin:  -bottom: 15px;
+}
+
+.wishes {
+
+ margin: 30px;
+}
+
+.editpopup true {
+
+
+}
+
+#add {
+
+margin: 20px 0;
+
+}
+
+#search {
+  width: 200px;
+  height: 60px;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.container {
+
+  text-align: center;
+}
